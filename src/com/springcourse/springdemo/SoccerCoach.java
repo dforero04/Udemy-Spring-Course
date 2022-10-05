@@ -1,20 +1,19 @@
 package com.springcourse.springdemo;
 
-public class TrackCoach implements Coach {
-
+public class SoccerCoach implements Coach{
     private final FortuneService fortuneService;
 
-    public TrackCoach(FortuneService fortuneService) {
+    public SoccerCoach(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
     @Override
     public String getDailyWorkout() {
-        return "Run a hard 5K";
+        return "Juggle the ball 500 times";
     }
 
     @Override
     public String getDailyFortune() {
-        return "Track coach says: "+fortuneService.getFortune();
+        return "Soccer coach says: "+fortuneService.getFortune();
     }
 }
