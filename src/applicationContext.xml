@@ -13,6 +13,12 @@
     <bean id="myCoach" class="com.springcourse.springdemo.SoccerCoach">
         <constructor-arg ref="myFortune"/>
     </bean>
+
+    <bean id="mySwimmingCoach" class="com.springcourse.springdemo.SwimmingCoach">
+        <!-- set up setter injection -->
+        <!-- Spring will call (set)name based on value below -->
+        <property name="fortuneService" ref="myFortune" />
+    </bean>
     
 </beans>
 
