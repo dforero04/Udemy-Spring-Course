@@ -3,11 +3,11 @@ package com.springcourse.springdemo;
 public class BaseballCoach implements Coach{
 
     // define a private field for the dependency
-    private final FortuneService fortuneService;
+    private final RandomFortuneService randomFortuneService;
 
     // define a constructor for dependency injection
-    public BaseballCoach(FortuneService theFortuneService) {
-        fortuneService = theFortuneService;
+    public BaseballCoach(RandomFortuneService theRandomFortuneService) {
+        randomFortuneService = theRandomFortuneService;
     }
 
     @Override
@@ -18,6 +18,6 @@ public class BaseballCoach implements Coach{
     @Override
     public String getDailyFortune(){
         // use my fortuneService to get a fortune
-        return "Baseball coach says: "+fortuneService.getFortune();
+        return "Baseball coach says: "+randomFortuneService.getFortune();
     }
 }

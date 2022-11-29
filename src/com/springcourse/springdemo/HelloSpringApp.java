@@ -11,6 +11,7 @@ public class HelloSpringApp {
         // retrieve bean from config file
         Coach theCoach = context.getBean("myCoach", Coach.class);
         SwimmingCoach swimCoach = context.getBean("mySwimmingCoach", SwimmingCoach.class);
+        BaseballCoach baseballCoach = context.getBean("myBaseballCoach", BaseballCoach.class);
 
         // Call methods on the bean
         System.out.println("Dependency Injection");
@@ -23,6 +24,12 @@ public class HelloSpringApp {
         System.out.println("You can toggle between hardcoded values and properties file");
         System.out.println(swimCoach.getEmailAddress());
         System.out.println(swimCoach.getTeam());
+
+        System.out.println("Practice Activity #2");
+        System.out.println("Random Fortune #1");
+        System.out.println(baseballCoach.getDailyFortune());
+        System.out.println("Random Fortune #2");
+        System.out.println(baseballCoach.getDailyFortune());
 
         // Close the context
         context.close();
