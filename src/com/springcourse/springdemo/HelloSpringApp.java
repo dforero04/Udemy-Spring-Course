@@ -20,6 +20,7 @@ public class HelloSpringApp {
         System.out.println("Setter Injection");
         System.out.println(swimCoach.getDailyWorkout());
         System.out.println(swimCoach.getDailyFortune());
+        System.out.println("You can toggle between hardcoded values and properties file");
         System.out.println(swimCoach.getEmailAddress());
         System.out.println(swimCoach.getTeam());
 

@@ -7,6 +7,9 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- Load the properties file -->
+    <context:property-placeholder location="classpath:sport.props" />
+
     <!-- Define your beans here -->
     <bean id="myFortune" class="com.springcourse.springdemo.LuckyFortuneService"/>
 
@@ -19,8 +22,12 @@
         <!-- Spring will call (set)name based on value below -->
 
         <!-- These first two props are hardcoded values -->
-        <property name="emailAddress" value="swimCoach@gmail.com" />
-        <property name="team" value="The Swim Team" />
+        <!-- <property name="emailAddress" value="swimCoach@gmail.com" /> -->
+        <!-- <property name="team" value="The Swim Team" /> -->
+
+        <!-- These two props are pulled from the sport.props file -->
+        <property name="emailAddress" value="${test.email}" />
+        <property name="team" value="${test.team}" />
         <property name="fortuneService" ref="myFortune" />
     </bean>
     
