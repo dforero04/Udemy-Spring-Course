@@ -17,7 +17,6 @@
     <bean id="mySwimmingCoach" class="com.springcourse.springdemo.SwimmingCoach">
         <!-- set up setter injection -->
         <!-- Spring will call (set)name based on value below -->
-        <!--These first two props are hardcoded values-->
         <property name="emailAddress" value="swimCoach@gmail.com" />
         <property name="team" value="The Swim Team" />
         <property name="fortuneService" ref="myFortune" />
