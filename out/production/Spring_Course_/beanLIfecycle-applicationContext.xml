@@ -14,8 +14,9 @@
     <!-- Prototype = objects point to different memory locations -->
     <bean
             id="myCoach"
-            class="com.springcourse.springdemo.SoccerCoach"
-            scope="prototype"
+            class="com.springcourse.springdemo.TrackCoach"
+            init-method="doMyStartupStuff"
+            destroy-method="doMyCleanupStuff"
     >
         <!-- Set up constructor injection -->
         <constructor-arg ref="myFortune"/>

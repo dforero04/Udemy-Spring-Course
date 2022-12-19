@@ -9,13 +9,13 @@
     <!-- This is defining dependencies -->
     <bean id="myFortune" class="com.springcourse.springdemo.LuckyFortuneService"/>
 
-    <!-- This will change from Singleton scope to Prototype scope -->
-    <!-- Singleton = object points to same memory location -->
-    <!-- Prototype = objects point to different memory locations -->
+<!-- init-method and destory-method are used to do custom business logic during the
+     bean lifecycle -->
     <bean
             id="myCoach"
-            class="com.springcourse.springdemo.SoccerCoach"
-            scope="prototype"
+            class="com.springcourse.springdemo.TrackCoach"
+            init-method="doMyStartupStuff"
+            destroy-method="doMyCleanupStuff"
     >
         <!-- Set up constructor injection -->
         <constructor-arg ref="myFortune"/>
