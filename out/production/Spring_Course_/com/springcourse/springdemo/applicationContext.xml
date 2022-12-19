@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Load the properties file -->
+    <context:property-placeholder location="classpath:sport.props" />
+
+    <!-- Define your beans here -->
+    <bean id="myFortune" class="com.springcourse.springdemo.LuckyFortuneService"/>
+    <bean id="myRandomFortune" class="com.springcourse.springdemo.RandomFortuneService"/>
+
+    <bean id="myCoach" class="com.springcourse.springdemo.SoccerCoach">
+        <constructor-arg ref="myFortune"/>
+    </bean>
+
+    <bean id="mySwimmingCoach" class="com.springcourse.springdemo.SwimmingCoach">
+        <!-- set up setter injection -->
+        <!-- Spring will call (set)name based on value below -->
+
+        <!-- These first two props are hardcoded values -->
+        <!-- <property name="emailAddress" value="swimCoach@gmail.com" /> -->
+        <!-- <property name="team" value="The Swim Team" /> -->
+
+        <!-- These two props are pulled from the sport.props file -->
+        <property name="emailAddress" value="${test.email}" />
+        <property name="team" value="${test.team}" />
+        <property name="fortuneService" ref="myFortune" />
+    </bean>
+
+    <!-- Practice Activity #2 - Dependency Injection -->
+    <bean id="myBaseballCoach" class="com.springcourse.springdemo.BaseballCoach">
+        <constructor-arg ref="myRandomFortune"/>
+    </bean>
+    
+</beans>
+
+
+
+
+

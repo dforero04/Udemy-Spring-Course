@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define your beans here -->
+
+    <!-- This is defining dependencies -->
+    <bean id="myFortune" class="com.springcourse.springdemo.LuckyFortuneService"/>
+
+    <!-- This will change from Singleton scope to Prototype scope -->
+    <!-- Singleton = object points to same memory location -->
+    <!-- Prototype = objects point to different memory locations -->
+    <bean
+            id="myCoach"
+            class="com.springcourse.springdemo.SoccerCoach"
+            scope="prototype"
+    >
+        <!-- Set up constructor injection -->
+        <constructor-arg ref="myFortune"/>
+    </bean>
+
+</beans>
+
+
+
+
+
